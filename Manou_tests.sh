@@ -1,12 +1,12 @@
 #!/bin/bash
 # ****************************************************************** #
-#  test_codexion.sh                                                  #
+#  Manou_tests.sh                                                  #
 #  By: Manou(nfitahin)                                                  #
 #                                                                      #
 #  Script de tests automatiques pour le projet Codexion.              #
 #  A placer dans le meme dossier que le Makefile / codexion.c, puis : #
 #                                                                      #
-#      chmod +x Manou-tests.sh                                      #
+#      chmod +x Manou_tests.sh                                      #
 #      ./Manou_tests.sh                                             #
 #                                                                      #
 #  Le script compile le projet, lance une serie de tests (arguments   #
