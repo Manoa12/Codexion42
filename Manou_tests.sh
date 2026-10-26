@@ -1,17 +1,17 @@
 #!/bin/bash
 # ****************************************************************** #
-#  Manou_tests.sh                                                    #
-#  By: Manou(nfitahin)                                               #
-#                                                                    #
-#  Script de tests automatiques pour le projet Codexion.             #
-#  A placer dans le meme dossier que le Makefile / codexion.c, puis :#
-#                                                                    #
-#      chmod +x Manou_tests.sh                                       #
-#      ./Manou_tests.sh                                              #
-#                                                                    #
-#  Le script compile le projet, lance une serie de tests (arguments  #
-#  invalides, cas fonctionnels, format des logs, memoire, races),    #
-#  et affiche un resume PASS/FAIL a la fin.                          #
+#  test_codexion.sh                                                  #
+#  By: Manou(nfitahin)                                                  #
+#                                                                      #
+#  Script de tests automatiques pour le projet Codexion.              #
+#  A placer dans le meme dossier que le Makefile / codexion.c, puis : #
+#                                                                      #
+#      chmod +x Manou-tests.sh                                      #
+#      ./Manou-tests.sh                                             #
+#                                                                      #
+#  Le script compile le projet, lance une serie de tests (arguments   #
+#  invalides, cas fonctionnels, format des logs, memoire, races),     #
+#  et affiche un resume PASS/FAIL a la fin.                           #
 # ****************************************************************** #
 
 BIN="./codexion"
@@ -113,17 +113,17 @@ print_box "$CYAN" \
 # ---------------------------------------------------------------- #
 
 info "Compilation"
-if make re > /tmp/codexion_build.log 2>&1; then
+if make re > /tmp/codexion_build_$USER.log 2>&1; then
 	ok "Compilation sans erreur (make re)"
 else
-	ko "Compilation (voir /tmp/codexion_build.log)"
+	ko "Compilation (voir /tmp/codexion_build_$USER.log)"
 	echo "Impossible de continuer sans binaire compile."
 	exit 1
 fi
 
-if grep -qi "warning" /tmp/codexion_build.log; then
+if grep -qi "warning" /tmp/codexion_build_$USER.log; then
 	ko "Compilation sans aucun warning (-Wall -Wextra -Werror)"
-	grep -i "warning" /tmp/codexion_build.log
+	grep -i "warning" /tmp/codexion_build_$USER.log
 else
 	ok "Compilation sans aucun warning"
 fi
